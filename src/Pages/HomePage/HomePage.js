@@ -4,6 +4,8 @@ import axios from "axios";
 import { useState } from "react";
 import "./HomePage.scss";
 import { Link } from "react-router-dom";
+import IngredientsListButton from "../../Components/IngredientsListButton/IngredientsListButton";
+
 
 export default function HomePage() {
   const [suggestedmeal, setSuggestedMeal] = useState([]);
@@ -42,6 +44,7 @@ export default function HomePage() {
           </Link>
         ))}
       </div>
+      <IngredientsListButton/>
     </div>
   );
 }
