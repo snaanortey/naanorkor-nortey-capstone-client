@@ -6,12 +6,12 @@ import ShoppingList from "./Pages/ShoppingList/ShoppingList";
 function App() {
   return (
     <BrowserRouter>
-    <main>
-      <Routes>
-<Route path ="/" element={<HomePage/>}></Route>
-<Route path ="/ingredients" element={<ShoppingList/>}></Route>
-      </Routes>
-    </main>
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/ingredients/:mealId" element={<ShoppingList />}></Route>
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }

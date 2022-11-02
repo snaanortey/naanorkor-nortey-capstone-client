@@ -12,9 +12,11 @@ export default function HomePage() {
     const value = e.target.value;
 
     if (value.length >= 3) {
-      axios.get(`http://localhost:8000/search?query=${value}`).then((res) => {
-        setSuggestedMeal(res.data.hits.hits);
-      });
+      axios
+        .get(`http://localhost:8000/meals/search?query=${value}`)
+        .then((res) => {
+          setSuggestedMeal(res.data);
+        });
     }
     if (value.length <= 2) {
       setSuggestedMeal([]);
@@ -33,14 +35,13 @@ export default function HomePage() {
         />
       </div>
 
-      <Link to = "/ingredients"><div>
+      <div>
         {suggestedmeal.map((eachmeal, i) => (
-          <p key={i}>{eachmeal.fields.title}</p>
+          <Link key={i} to={`/ingredients/${eachmeal.id}`}>
+            <p key={i}>{eachmeal.title}</p>
+          </Link>
         ))}
-      </div></Link>
+      </div>
     </div>
   );
 }
-
-
-
