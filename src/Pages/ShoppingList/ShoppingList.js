@@ -4,11 +4,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export default function ShoppingList() {
-  
   const params = useParams();
-  console.log(params);
 
-  const { mealId } = params
+  const { mealId } = params;
   const [ingredients, setIngredients] = useState([]);
 
   const getIngredientsByMealId = async () => {
@@ -16,7 +14,6 @@ export default function ShoppingList() {
       `http://localhost:8000/ingredients/${mealId}`
     );
 
-    console.log(data);
     setIngredients(data);
   };
 

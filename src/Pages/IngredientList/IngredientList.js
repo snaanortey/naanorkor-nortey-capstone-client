@@ -13,9 +13,10 @@ export default function IngredientList() {
     axios
       .get("http://localhost:8000/ingredientlist", { ingredientBoxInArray })
       .then((res) => {
-        console.log(res.data);
         getIngredientList(res.data);
       });
+
+    e.target.reset();
   };
 
   return (
