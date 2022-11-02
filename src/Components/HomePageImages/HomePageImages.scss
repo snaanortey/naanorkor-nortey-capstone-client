@@ -4,6 +4,14 @@
 @use "../../styles/_partials/resets" as *;
 @use "../../styles/_partials/variables" as *;
 
+.food {
+    background-color: black;
 
+    &__image {
+        width: 15rem;
+        height: 15rem;
+        
+    }
+}
   
         
