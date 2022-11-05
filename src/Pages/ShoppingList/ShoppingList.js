@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import TypeMeal from "../TypeMeal/TypeMeal";
 
 export default function ShoppingList() {
   const params = useParams();
@@ -26,10 +27,13 @@ export default function ShoppingList() {
   }
 
   return (
-    <div>
-      {ingredients.map((ingredient, i) => (
-        <p key={i}>{ingredient}</p>
-      ))}
-    </div>
+    <section className="shoppinglist">
+      <TypeMeal />
+      <div className="shoppinglist-div">
+        {ingredients.map((ingredient, i) => (
+          <p key={i}>{ingredient}</p>
+        ))}
+      </div>
+    </section>
   );
 }

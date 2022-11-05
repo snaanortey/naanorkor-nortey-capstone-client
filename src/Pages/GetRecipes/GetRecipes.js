@@ -3,37 +3,101 @@ import React from "react";
 import { useState } from "react";
 
 export default function GetRecipes() {
-  const [ingredientList, getIngredientList] = useState([]);
+  const [ingredientList, setIngredientList] = useState([]);
+  const [recipes, setRecipes] = useState([]);
 
-  const ingredientsBoxHandler = (e) => {
+  const getIngredientsViaImage = async (e) => {
+    const inputElement = e.target;
+
+    const fileName = e.target.value;
+
+    let formdata = new FormData();
+
+    formdata.append("image", inputElement.files[0], fileName);
+
+    const { data } = await axios.post(
+      "http://localhost:8000/image/ingredients",
+      formdata
+    );
+
+    // Prevents array from having duplicate values
+    const newArray = Array.from(new Set([...ingredientList, ...data]).values());
+
+    setIngredientList(newArray);
+  };
+
+  // Calls the API that returns list of recipes when the form is submitted
+  const getRecipesHandler = async (e) => {
     e.preventDefault();
-    const ingredientBox = e.target.ingredients.value;
-    const ingredientBoxInArray = ingredientBox.split("\n");
-    console.log(ingredientBoxInArray);
 
-    axios
-      .post("http://localhost:8000/recipes/search", ingredientBoxInArray)
-      .then((res) => {
-        console.log(res.data);
-        getIngredientList(res.data);
-      });
+    const { data } = await axios.post(
+      "http://localhost:8000/recipes/search",
+      ingredientList
+    );
+
+    setRecipes(data);
 
     e.target.reset();
   };
 
+  // Adds typed ingredient to ingredient array when the Enter key is pressed
+  const pressEnterKey = (e) => {
+    e.preventDefault();
+    if (e.key === "Enter") {
+      const typedInput = e.target.value;
+      const newValue = Array.from(
+        new Set([...ingredientList, typedInput]).values()
+      );
+      setIngredientList(newValue);
+      e.target.value = "";
+    }
+  };
+
+  // Removes ingredient from array when the delete button is clicked
+  const deleteIngredient = (index) => {
+    const filteredArray = ingredientList.filter((_, i) => i !== index);
+    setIngredientList(filteredArray);
+  };
+
   return (
     <div>
-      <form onSubmit={ingredientsBoxHandler} action="">
-        <textarea name="ingredients" id="" cols="30" rows="12"></textarea>
-        <button>Get recipes for ingredients</button>
+      <form onSubmit={getRecipesHandler} action="">
+        <div>
+          <input
+            onChange={getIngredientsViaImage}
+            type="file"
+            accept="image/*"
+            id="upload-button"
+          />
+          <label htmlFor="upload-button"></label>
+        </div>
+
+        <input onKeyDown={pressEnterKey} id=""></input>
+        <div id="ingredients">
+          {ingredientList.map((ingredient, index) => (
+            <button key={index}>
+              {ingredient}{" "}
+              <span onClick={() => deleteIngredient(index)}>x</span>
+            </button>
+          ))}
+        </div>
+        <button>Upload a picture of your ingredients</button>
       </form>
+
       <div>
-        {ingredientList.map((ingredient, i) => (
+        {recipes.map((recipe, i) => (
           <div key={i}>
             <div>
-              <h3>{ingredient._source.title}</h3>
+              <h3>{recipe.title}</h3>
             </div>
-            <div>{ingredient._source.instructions}</div>
+            <h3>Ingredients</h3>
+            {recipe.ingredients.map((ingredient, i) => (
+              <p key={i}>{ingredient}</p>
+            ))}
+            <div>
+              <h3>Cooking Instructions...</h3>
+              <p>{recipe.instructions}</p>
+            </div>
           </div>
         ))}
       </div>
