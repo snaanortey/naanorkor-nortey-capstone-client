@@ -26,6 +26,26 @@ export default function GetRecipes() {
     setIngredientList(newArray);
   };
 
+  // Adds typed ingredient to ingredient array when the Enter key is pressed
+  const pressEnterKey = (e) => {
+    e.preventDefault();
+    // Adds value in input button to ingredientLists state after the enter key is typed
+    if (e.key === "Enter") {
+      const typedInput = e.target.value;
+      const newValue = Array.from(
+        new Set([...ingredientList, typedInput]).values()
+      );
+      setIngredientList(newValue);
+    }
+    e.target.value = "";
+  };
+
+  // Removes ingredient from array when the delete button is clicked
+  const deleteIngredient = (index) => {
+    const filteredArray = ingredientList.filter((_, i) => i !== index);
+    setIngredientList(filteredArray);
+  };
+
   // Calls the API that returns list of recipes when the form is submitted
   const getRecipesHandler = async (e) => {
     e.preventDefault();
@@ -37,26 +57,7 @@ export default function GetRecipes() {
 
     setRecipes(data);
 
-    e.target.reset();
-  };
-
-  // Adds typed ingredient to ingredient array when the Enter key is pressed
-  const pressEnterKey = (e) => {
-    e.preventDefault();
-    if (e.key === "Enter") {
-      const typedInput = e.target.value;
-      const newValue = Array.from(
-        new Set([...ingredientList, typedInput]).values()
-      );
-      setIngredientList(newValue);
-      e.target.value = "";
-    }
-  };
-
-  // Removes ingredient from array when the delete button is clicked
-  const deleteIngredient = (index) => {
-    const filteredArray = ingredientList.filter((_, i) => i !== index);
-    setIngredientList(filteredArray);
+    // e.target.reset();
   };
 
   return (
@@ -72,8 +73,8 @@ export default function GetRecipes() {
           <label htmlFor="upload-button"></label>
         </div>
 
-        <input onKeyDown={pressEnterKey} id=""></input>
-        <div id="ingredients">
+        <input onKeyDown={pressEnterKey} ></input>
+        <div >
           {ingredientList.map((ingredient, index) => (
             <button key={index}>
               {ingredient}{" "}
@@ -81,7 +82,7 @@ export default function GetRecipes() {
             </button>
           ))}
         </div>
-        <button>Upload a picture of your ingredients</button>
+        <button>Get recipes</button>
       </form>
 
       <div>
