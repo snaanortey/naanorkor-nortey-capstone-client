@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage/HomePage";
 import ShoppingList from "./Pages/ShoppingList/ShoppingList";
 import GetRecipes from "./Pages/GetRecipes/GetRecipes";
-import TypeMeal from "./Pages/TypeMeal/TypeMeal";
+import SearchIngredients from "./Pages/SearchIngredients/SearchIngredients";
 
 function App() {
   return (
@@ -11,10 +11,10 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/getRecipes" element={<GetRecipes/>}></Route>
-          <Route path="/getShoppingList" element={<TypeMeal/>}></Route>
+          <Route path="/getRecipes" element={<GetRecipes />}></Route>
+          <Route path="/getShoppingList" element={<SearchIngredients />}></Route>
           <Route path="/ingredients/:mealId" element={<ShoppingList />}></Route>
-          <Route path="/ingredientlist" ></Route>
+          <Route path="/ingredientlist"></Route>
         </Routes>
       </main>
     </BrowserRouter>

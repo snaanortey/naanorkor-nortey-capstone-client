@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import TypeMeal from "../TypeMeal/TypeMeal";
+import TypeMeal from "../../Components/SearchMeal/SearchMeal";
 import shoppinglistImage from "../../assets/images/shoppinglist1.jpeg";
 import "./ShoppingList.scss";
 
@@ -41,7 +41,8 @@ export default function ShoppingList() {
         </div>
         <div className="shoppinglist__containerTwo">
           <h3 className="shoppinglist__heading">
-            Shoping List for <span className="shoppinglist__mealname">{recipe.title}</span>
+            Shoping List for{" "}
+            <span className="shoppinglist__mealname">{recipe.title}</span>
           </h3>
           <TypeMeal />
           <div className="shoppinglist__list">
