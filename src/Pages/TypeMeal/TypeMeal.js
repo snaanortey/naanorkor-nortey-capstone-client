@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./TypeMeal.scss";
+import search_icon from "../../assets/images/search-icon.jpeg";
 
 export default function TypeMeal() {
   const [suggestedmeal, setSuggestedMeal] = useState([]);
@@ -28,23 +29,34 @@ export default function TypeMeal() {
 
   return (
     <div className="typeMeal">
-      <div className="first">
-        <input
-          onChange={getSuggestedMeal}
-          type="text"
-          placeholder="type your meal"
-          name="search"
-        />
-      </div>
+      <div className="">
 
-      <div className="typeMeal__list">
-        {suggestedmeal.map((eachmeal, i) => (
-          <Link key={i} to={`/ingredients/${eachmeal.id}`}>
-            <p onClick={setInputToEmpty} key={i}>
-              {eachmeal.title}
-            </p>
-          </Link>
-        ))}
+        
+        <div class="search-container">
+          <input
+            onChange={getSuggestedMeal}
+            type="text"
+            name="search"
+            placeholder="Search your meal..."
+            class="search-input"
+          />
+
+          <p className="meal__icon">🔍</p>
+        </div>
+
+        <div className="typeMeal__list">
+          {suggestedmeal.map((eachmeal, i) => (
+            <Link
+              className="typeMeal__link"
+              key={i}
+              to={`/ingredients/${eachmeal.id}`}
+            >
+              <p className="typeMeal__text" onClick={setInputToEmpty} key={i}>
+                {eachmeal.title}
+              </p>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
