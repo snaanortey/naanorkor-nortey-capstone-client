@@ -1,0 +1,18 @@
+@use "../../styles/_partials/breakpoints" as *;
+@use "../../styles/_partials/fonts" as *;
+@use "../../styles/_partials/mixins" as *;
+@use "../../styles/_partials/resets" as *;
+@use "../../styles/_partials/variables" as *;
+
+.searchIngredients{
+    margin: 0;
+    padding: 0;
+    // background-color: #b2e0df;
+    background: url("../../assets/images/backgroundimage4.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
