@@ -4,6 +4,12 @@
 @use "../../styles/_partials/resets" as *;
 @use "../../styles/_partials/variables" as *;
 
+#upload-button {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
 .shoppinglist {
     height: 100vh;
     padding: 5rem;
@@ -17,7 +23,6 @@
     border-radius: 7%;
     background-color: white;
     height: 100%;
-    max-width: 1400px;
     margin: auto;
   }
 
