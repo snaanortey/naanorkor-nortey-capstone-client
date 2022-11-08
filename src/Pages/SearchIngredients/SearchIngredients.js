@@ -5,9 +5,14 @@ import "./SearchIngredients.scss";
 export default function SearchIngredients() {
   return (
     <div className="searchIngredients">
-      <div className="">Ready to eat? Type the meal you want...</div>
-      <SearchMeal />
-      <div className="">...Get your shopping list</div>
+      <div className="searchIngredients__container">
+        <h3 className="searchIngredients__heading">Ready to go shopping?</h3>
+        <h4 className="searchIngredients__text"> Search the meal you want to cook...</h4>
+        <h4 className="searchIngredients__text">...Get your shopping list</h4>
+      </div>
+      <div className="searchIngredients__container">
+        <SearchMeal />
+      </div>
     </div>
   );
 }

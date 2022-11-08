@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./RecipeDetails.scss";
-import recipepic from "../../assets/images/recipe1.jpeg";
+import recipepic from "../../assets/images/sucks.jpeg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function RecipeDetails() {
   const [recipe, setRecipe] = useState(null);
@@ -30,18 +31,35 @@ export default function RecipeDetails() {
   return (
     <div className="recipeDetails">
       <img className="recipeDetails__image" src={recipepic} alt="food" />
-      <div className="recipeDetails__text"> 
-      <div className="recipeDetails__title">
-        <h3>{recipe.title}</h3>
-      </div>
-      <h3>Ingredients</h3>
-      {recipe.ingredients.map((ingredient, i) => (
-        <p key={i}>{ingredient}</p>
-      ))}
-      <div>
-        <h3 className="recipeDetails__instructions">Cooking Instructions...</h3>
-        <p>{recipe.instructions}</p>
-      </div>
+      <div className="recipeDetails__text">
+        <div className="recipeDetails__title">
+          <h3>{recipe.title}</h3>
+          <div>
+            <FontAwesomeIcon icon={["far", "clock"]} /> 30 min
+          </div>
+          <div>
+            <FontAwesomeIcon icon={["far", "user"]} /> 2 servings
+          </div>
+          <div>
+            <FontAwesomeIcon icon={["far", "compass"]} /> 457 calories
+          </div>
+        </div>
+        <h3 className="recipeDetails__ingredients-heading">Ingredients</h3>
+        <div className="recipeDetails__list">
+          {recipe.ingredients.map((ingredient, i) => (
+            <li className="recipeDetails__ingredient" key={i}>
+              {ingredient}
+            </li>
+          ))}
+        </div>
+        <div>
+          <h3 className="recipeDetails__instructions-header">Directions</h3>
+          <ol className="recipeDetails__instructions-body">
+            {recipe.instructions.split(". ").map((line) => (
+              <li className="recipeDetails__instructions-list">{line}</li>
+            ))}
+          </ol>
+        </div>
       </div>
     </div>
   );

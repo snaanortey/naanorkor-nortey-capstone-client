@@ -5,9 +5,33 @@ import axios from "axios";
 import { useEffect } from "react";
 
 export default function RecipeSummary(props) {
-  
+  const [imageUrl, setImageUrl] = useState(null);
 
+  // useEffect(async () => {
+  //   const {
+  //     data: { image },
+  //   } = await axios.get("https://foodish-api.herokuapp.com/api/");
 
+  //   setImageUrl(image);
+  // },[]);
+
+  return (
+    <div class="center">
+      <div class="property-card">
+        <div class="property-image">
+          {/* <img src="https://cdn.photographylife.com/wp-content/uploads/2017/01/What-is-landscape-photography.jpg" /> */}
+          <img src={props.recipe.imageUrl}/>
+          <div class="property-image-title">
+            <h5>{props.recipe.title}</h5>
+          </div>
+        </div>
+        <div class="property-description">
+          <h5> {props.recipe.title} </h5>
+          <p>{props.recipe.instructions.substring(0, 50)}</p>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="recipeSummary">

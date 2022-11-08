@@ -2,10 +2,13 @@ import "./styles/App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage/HomePage";
 import ShoppingList from "./Pages/ShoppingList/ShoppingList";
-import GetRecipes from "./Pages/GetRecipes/GetRecipes";
 import SearchIngredients from "./Pages/SearchIngredients/SearchIngredients";
 import RecipeDetails from "./Pages/RecipeDetails/RecipeDetails";
 import RecipesPage from "./Pages/RecipesPage/RecipesPage";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { far } from "@fortawesome/free-regular-svg-icons";
+
+library.add(far);
 
 function App() {
   return (
