@@ -5,9 +5,11 @@
 @use "../../styles/_partials/variables" as *;
 
 .searchrecipes {
+ 
+
   &__container {
-    width: 500px;
-    height: 40px;
+    // width: 500px;
+    // height: 40px;
     margin: 150px auto;
     background: #444;
     background: rgba(0, 0, 0, 0.2);
@@ -16,36 +18,89 @@
   }
 
   &__summary {
-    overflow: auto;
-    max-height: 40vh;
+    margin: 1.6rem;
   }
 
-  &__input {
-    position: relative;
-    width: 370px;
-    padding: 10px 5px;
-    float: left;
-    color: #ccc;
-    border: 2px solid;
-    background: transparent;
-    border-radius: 7px;
-    &:focus {
-      outline: 0;
-      background: transparent;
-    }
+  // &__input {
+    // position: relative;
+    // // width: 370px;
+    // padding: 10px 5px;
+    // float: left;
+    // color: #ccc;
+    // border: 2px solid;
+    // background: transparent;
+    // border-radius: 7px;
+    // &:focus {
+    //   outline: 0;
+    //   background: transparent;
+    // }
+    // &::placeholder {
+    //   text-shadow: 1px 2px 3px;
+    //   font-size: 2rem;
+    // }
+
+    &__input {
+      width: 100%;
+      padding: 12px 24px;
+      margin: 0 2rem;
+      background-color: transparent;
+      transition: transform 250ms ease-in-out;
+      font-size: 14px;
+      line-height: 18px;
+      
+      color: #575756;
+      background-color: transparent;
+/*         background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg); */
+
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: 18px 18px;
+      background-position: 95% center;
+      border-radius: 50px;
+      border: 1px solid #575756;
+      transition: all 250ms ease-in-out;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      
+      &::placeholder {
+          color: color(#575756 a(0.8));
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+      }
+      
+      &:hover,
+      &:focus {
+          padding: 12px 0;
+          outline: 0;
+          border: 1px solid transparent;
+          border-bottom: 1px solid #575756;
+          border-radius: 0;
+          background-position: 100% center;
+      }
   }
+
 
   &__button {
-    border: 2px solid white;
     padding: 0;
     cursor: pointer;
-    height: 4rem;
-    width: 10rem;
-    color: #fff;
+    height: 4.5rem;
+    width: 22rem;
+    font-size: 2rem;
+    line-height: 2.8rem;
+    font-weight: 800;
+    text-shadow: rgb(111, 106, 106);
     background: transparent;
-    border-left: 1px solid #fff;
-    border-radius: 0 3px 3px 0;
-    margin-left: 2rem;
+    border-radius: 6.5rem;
+    margin-left: 0.2rem;
+    background: #556677;
+    letter-spacing: 0.1rem;
+    color: #111010;
+    background: #F7D136;
+    box-shadow: 5px 5px 2px 0px rgba(64, 64, 64, 0.75);
+    width: 20%;
+   margin-right: 8rem;
+    
+   
     &:hover {
       background: #fff;
       color: #444;
@@ -61,11 +116,13 @@
   &__containerTwo {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   &__wrapTwo {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    align-items: baseline;
   }
 
   &__camera {
@@ -76,10 +133,16 @@
   }
 
   &__allinputs {
+display: flex;
+justify-content: space-between;
+width: 100%;
+  }
+
+  &__results {
     display: flex;
-    align-items: flex-start;
-    border: 2px solid rgb(192, 188, 188);
-    padding: 2rem;
-    border-radius: 7px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    overflow: auto;
+    height: 60vh;
   }
 }

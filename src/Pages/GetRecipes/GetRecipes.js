@@ -2,16 +2,15 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import camera_icon from "../../assets/images/camera-icon.svg";
+import camera_icon from "../../assets/images/5849-camera-icon.gif";
 import "./GetRecipes.scss";
 import search_icon from "../../assets/images/search-icon.jpeg";
 import RecipeSummary from "../../Components/RecipeSummary/RecipeSummary";
 
-export default function GetRecipes() {
+export default function GetRecipes(props) {
   const [ingredientList, setIngredientList] = useState([]);
   const [recipes, setRecipes] = useState([]);
   // const [randomImage, setRandomImage] = useState(null);
-  
 
   const getIngredientsViaImage = async (e) => {
     const inputElement = e.target;
@@ -61,67 +60,65 @@ export default function GetRecipes() {
     );
 
     setRecipes(data);
-
-    /* const {result} = axios.get("https://foodish-api.herokuapp.com/api/");
-    setRandomImage(result);
-  
-    console.log(randomImage); */
   };
 
   return (
-    <div className="searchrecipes">
-      <div>
-        <div className="searchrecipes__wrapTwo">
-          <div className="searchrecipes__allinputs">
-            <div className="searchrecipes__containerTwo">
-              <input
-                className="searchrecipes__input"
-                placeholder="Type your ingredients"
-                onKeyDown={pressEnterKey}
-              ></input>
+    <>
+      <div className="searchrecipes">
+        <div>
+          <div className="searchrecipes__wrapTwo">
+            <div className="searchrecipes__allinputs">
+              <div className="searchrecipes__containerTwo">
+                <input
+                  className="searchrecipes__input"
+                  placeholder="Type your ingredients"
+                  onKeyDown={pressEnterKey}
+                ></input>
+                <div>
+                  {ingredientList.map((ingredient, index) => (
+                    <button key={index}>
+                      {ingredient}
+                      <span onClick={() => deleteIngredient(index)}>x</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
               <div>
-                {ingredientList.map((ingredient, index) => (
-                  <button key={index}>
-                    {ingredient}
-                    <span onClick={() => deleteIngredient(index)}>x</span>
-                  </button>
-                ))}
+                <input
+                  className="searchrecipes__container"
+                  onChange={getIngredientsViaImage}
+                  type="file"
+                  accept="image/*"
+                  id="upload-button"
+                />
+
+                <label htmlFor="upload-button">
+                  <img
+                    className="searchrecipes__camera"
+                    src={camera_icon}
+                    alt="camera icon"
+                  />
+                </label>
               </div>
             </div>
-            <div>
-              <input
-                className="searchrecipes__container"
-                onChange={getIngredientsViaImage}
-                type="file"
-                accept="image/*"
-                id="upload-button"
-              />
-              {/* <span class="searchicon"><img src={search_icon} alt="" /></span> */}
-
-              <label htmlFor="upload-button">
-                <img
-                  className="searchrecipes__camera"
-                  src={camera_icon}
-                  alt="camera icon"
-                />
-              </label>
-            </div>
+            <button
+              className="searchrecipes__button"
+              onClick={getRecipesHandler}
+            >
+              GET RECIPE
+            </button>
           </div>
-          <button className="searchrecipes__button" onClick={getRecipesHandler}>
-            Get recipes
-          </button>
         </div>
       </div>
-
-      <div>
+      <div className="searchrecipes__results">
         {recipes.map((recipe, i) => (
           <div className="searchrecipes__summary" key={i}>
             <Link to={`/recipe/${recipe.id}`}>
-              <RecipeSummary recipe={recipe} /* randomImage={randomImage} *//>
+              <RecipeSummary recipe={recipe} /* randomImage={randomImage} */ />
             </Link>
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }
