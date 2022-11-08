@@ -6,18 +6,14 @@ function HomePageImages() {
   return (
     <section className="homepage">
       <div className="homepage__button-container">
-        <Link to="/getRecipes">
+        <Link className="homepage__button-div" to="/getRecipes">
           <button className="homepage__button homepage__button--ingredients">
-            <h3 className="homepage__button-text">
-              Snap your ingredients ➟ Get recipes!
-            </h3>
+            Snap your ingredients ➟ Get recipes!
           </button>
         </Link>
-        <Link to="/getShoppingList">
+        <Link className="homepage__button-div" to="/getShoppingList">
           <button className="homepage__button homepage__button--shoppinglist">
-            <h3 className="homepage__button-text">
-              Type your meal ➠ Get a shopping list!
-            </h3>
+            Type your meal ➠ Get shopping list!
           </button>
         </Link>
       </div>
