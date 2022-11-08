@@ -6,6 +6,7 @@ import camera_icon from "../../assets/images/camera.svg";
 import "./GetRecipes.scss";
 import search_icon from "../../assets/images/search-icon.jpeg";
 import RecipeSummary from "../../Components/RecipeSummary/RecipeSummary";
+import upload from "../../assets/images/upload.png";
 
 export default function GetRecipes(props) {
   const [ingredientList, setIngredientList] = useState([]);
@@ -76,8 +77,18 @@ export default function GetRecipes(props) {
                   accept="image/*"
                   id="upload-button"
                 />
+                <label
+                  className="searchrecipes__uploadlabel"
+                  htmlFor="upload-button"
+                >
+                  UPLOAD IMAGES
+                </label>
 
-                <label htmlFor="upload-button">UPLOAD IMAGES</label>
+                <img
+                  className="searchrecipes__uploadimage"
+                  src={upload}
+                  alt="upload icon"
+                />
               </div>
 
               <div className="searchrecipes__container-searchtext">
@@ -89,13 +100,32 @@ export default function GetRecipes(props) {
               </div>
             </div>
             <div className="searchrecipes__ingredientsArray">
-            {ingredientList.map((ingredient, index) => (
-              <button className="searchrecipes__ingredientsArray-button" key={index}>
-                {ingredient}
-                <span className="searchrecipes__ingredientsArray-delete" onClick={() => deleteIngredient(index)}>x</span>
-              </button>
-            ))}
-          </div>
+              {ingredientList.map((ingredient, index) => (
+                <button
+                  className="searchrecipes__ingredientsArray-button"
+                  key={index}
+                >
+                  {ingredient}
+                  <span
+                    className="searchrecipes__ingredientsArray-delete"
+                    onClick={() => deleteIngredient(index)}
+                  >
+                    x
+                  </span>
+                </button>
+              ))}
+            </div>
+            <div className="searchrecipes__results">
+              {recipes.map((recipe, i) => (
+                <div className="searchrecipes__summary" key={i}>
+                  <Link to={`/recipe/${recipe.id}`}>
+                    <RecipeSummary
+                      recipe={recipe} /* randomImage={randomImage} */
+                    />
+                  </Link>
+                </div>
+              ))}
+            </div>
             <button
               className="searchrecipes__button"
               onClick={getRecipesHandler}
@@ -103,17 +133,7 @@ export default function GetRecipes(props) {
               GET RECIPE
             </button>
           </div>
-          
         </div>
-      </div>
-      <div className="searchrecipes__results">
-        {recipes.map((recipe, i) => (
-          <div className="searchrecipes__summary" key={i}>
-            <Link to={`/recipe/${recipe.id}`}>
-              <RecipeSummary recipe={recipe} /* randomImage={randomImage} */ />
-            </Link>
-          </div>
-        ))}
       </div>
     </>
   );

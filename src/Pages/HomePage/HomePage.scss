@@ -15,41 +15,32 @@
     margin: auto;
   }
 
-  &__image {
-    width: 34rem;
-    height: 50rem;
-    margin: 6rem 0 0 6rem;
+  &__button-wrap {
+    background: url(../../assets/images/napkin.png);
     position: absolute;
-    right: 3%;
-    bottom: 10%;
+    width: 17%;
+    height: 45vh;
+    top: 50%;
+    right: 4%;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 
   &__welcome {
     color: black;
     font-size: 2.4rem;
     font-weight: 600;
-    line-height: 6rem;
-  }
-
-  &__button-div {
-    position: absolute;
-    right: 3.5%;
-    width: 12%;
-
-    &--recipes {
-      top: 50%;
-    }
-
-    &--shoppinglist {
-      top: 75%;
-    }
   }
 
   &__intro {
     color: black;
     font-size: 2.2rem;
     font-weight: 500;
-    line-height: 3rem;
+  }
+
+  &__welcome {
     padding-bottom: 2rem;
   }
 
@@ -60,13 +51,14 @@
     color: #fff;
     background: D73828;
     cursor: pointer;
+    // background: #d73828;
     position: relative;
     z-index: 0;
     border-radius: 10px;
     font-size: 2.6rem;
-    width: 100%;
+    width: 90%;
     font-weight: 600;
-    right: 3.5%;
+    // right: 3.5%;
 
     &:before {
       content: "";

@@ -10,8 +10,6 @@ $green: #a2ed56;
 $yellow: #fddc32;
 $white: #fafafa;
 
-/*** EXTEND ***/
-/* box-shadow */
 %boxshadow {
   box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.05),
     0 0.5rem 1.125rem rgba(75, 0, 0, 0.05);
@@ -22,10 +20,23 @@ $white: #fafafa;
     padding: 3rem;
   }
 
+  &__name {
+    font-size: 3.8rem;
+    margin-bottom: 3rem;
+  }
+
+  &__others {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-top: 1.8rem;
+    color: hsl(25, 100%, 48%);
+  }
+
   &__image {
     width: 100%;
     height: 50vh;
-    border-radius: 0 0 40px 40px;
+    object-fit: cover;
+    border-radius: 0 0 40% 40%;
     position: relative;
   }
 
@@ -42,10 +53,6 @@ $white: #fafafa;
       line-height: 4rem;
     }
 
-    // &-body {
-    //   line-height: 2.5rem;
-
-    // }
     &-body {
       counter-reset: gradient-counter;
       list-style: none;
@@ -109,11 +116,13 @@ $white: #fafafa;
 
     &-list {
       line-height: 3.5rem;
+      font-size: 2rem;
+      font-style: italic;
     }
   }
 
   &__ingredients-heading {
-    font-size: 2rem;
+    font-size: 2.8rem;
     line-height: 4rem;
     font-weight: 500;
   }
@@ -124,10 +133,12 @@ $white: #fafafa;
 
   &__ingredient {
     list-style: square;
-    line-height: 3rem;
+    line-height: 4rem;
+    font-size: 2rem;
+    font-weight: 400;
 
     &::marker {
-      color: orange;
+      color: hsl(25, 100%, 48%);
     }
   }
 }
