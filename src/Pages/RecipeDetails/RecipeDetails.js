@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./RecipeDetails.scss";
-import recipepic from "../../assets/images/sucks.jpeg";
+import recipepic from "../../assets/images/avocadosalad3.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function RecipeDetails() {
@@ -33,14 +33,14 @@ export default function RecipeDetails() {
       <img className="recipeDetails__image" src={recipepic} alt="food" />
       <div className="recipeDetails__text">
         <div className="recipeDetails__title">
-          <h3>{recipe.title}</h3>
-          <div>
+          <h3 className="recipeDetails__name">{recipe.title}</h3>
+          <div className="recipeDetails__others">
             <FontAwesomeIcon icon={["far", "clock"]} /> 30 min
           </div>
-          <div>
+          <div className="recipeDetails__others">
             <FontAwesomeIcon icon={["far", "user"]} /> 2 servings
           </div>
-          <div>
+          <div className="recipeDetails__others">
             <FontAwesomeIcon icon={["far", "compass"]} /> 457 calories
           </div>
         </div>

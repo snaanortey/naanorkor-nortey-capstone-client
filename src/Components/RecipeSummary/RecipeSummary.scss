@@ -12,22 +12,25 @@
   background-color: rgb(250, 235, 215);
   overflow: auto;
 
+  &__image-image {
+    object-fit: contain;
+  }
+
   &__title {
     padding-bottom: 0.6rem;
     font-size: 1.6rem;
     line-height: 2.2rem;
     font-weight: 600;
     padding-top: 1rem;
-    color: black;
+    color: #060135;
     text-align: left;
   }
 
   &__details-div {
     display: flex;
     padding-top: 1rem;
-
-    
-    
+    font-size: 1.8rem;
+    font-weight: 500;
   }
 
   &__details-image {
@@ -48,14 +51,7 @@
     justify-content: space-between;
     color: black;
   }
-
-
 }
-
-
-
-
-
 
 .recipeSummary__card {
   height: 32rem;
@@ -84,7 +80,7 @@
 
 .recipeSummary__description {
   background-color: #fafafc;
-  height: 10rem;
+  height: 12rem;
   width: 30rem;
   position: absolute;
   bottom: 0em;
@@ -95,7 +91,6 @@
   text-align: center;
 }
 
-
 .recipeSummary__card:hover .recipeSummary__description {
   height: 0em;
   padding: 0px 1em;
@@ -103,4 +98,3 @@
 .recipeSummary__card:hover .recipeSummary__image {
   height: 18em;
 }
-

@@ -7,16 +7,13 @@ export default function RecipesPage() {
     <div className="recipespage">
       <div className="recipespage__container">
         <div className="recipespage__wrap">
-          <h2 className="recipespage__title">
-            
-            Have ingredients but not know what to cook?
-          </h2>
-          <ol className="recipespage__heading-div"> 
-          <li className="recipespage__heading">
-            Upload pic(s) of your ingredients
-          </li>
-          <li className="recipespage__heading">Type your ingredients</li>
-          <li className="recipespage__heading">Find a recipe to cook!</li>
+          <h2 className="recipespage__title">Not sure what to cook?</h2>
+          <ol className="recipespage__heading-div">
+            <li className="recipespage__heading">
+              Upload pic(s) of your ingredients
+            </li>
+            <li className="recipespage__heading">Type your ingredients</li>
+            <li className="recipespage__heading">Find a recipe to cook!</li>
           </ol>
         </div>
 
