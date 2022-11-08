@@ -5,8 +5,6 @@
 @use "../../styles/_partials/variables" as *;
 
 .searchrecipes {
- 
-
   &__container {
     // width: 500px;
     // height: 40px;
@@ -21,121 +19,131 @@
     margin: 1.6rem;
   }
 
-  // &__input {
-    // position: relative;
-    // // width: 370px;
-    // padding: 10px 5px;
-    // float: left;
-    // color: #ccc;
-    // border: 2px solid;
-    // background: transparent;
-    // border-radius: 7px;
-    // &:focus {
-    //   outline: 0;
-    //   background: transparent;
-    // }
-    // &::placeholder {
-    //   text-shadow: 1px 2px 3px;
-    //   font-size: 2rem;
-    // }
-
-    &__input {
-      width: 100%;
-      padding: 12px 24px;
-      margin: 0 2rem;
-      background-color: transparent;
-      transition: transform 250ms ease-in-out;
-      font-size: 14px;
-      line-height: 18px;
-      
-      color: #575756;
-      background-color: transparent;
-/*         background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg); */
-
+  &__input {
+    padding: 3.6rem;
+    transition: transform 250ms ease-in-out;
+    height: 6rem;
+    font-size: 2.4rem;
+    color: white;
+    background-color: black;
+    font-weight: 600;
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-size: 18px 18px;
-      background-position: 95% center;
-      border-radius: 50px;
-      border: 1px solid #575756;
-      transition: all 250ms ease-in-out;
-      backface-visibility: hidden;
-      transform-style: preserve-3d;
-      
-      &::placeholder {
-          color: color(#575756 a(0.8));
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-      }
-      
-      &:hover,
-      &:focus {
-          padding: 12px 0;
-          outline: 0;
-          border: 1px solid transparent;
-          border-bottom: 1px solid #575756;
-          border-radius: 0;
-          background-position: 100% center;
-      }
-  }
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border: 2px solid #d2bdff;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
 
+    &::placeholder {
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 1.8rem;
+      
+    }
+
+    &:hover,
+    &:focus {
+      padding: 12px 0;
+      outline: 0;
+      border: 1px solid transparent;
+      border-bottom: 1px solid #575756;
+      border-radius: 0;
+      background-position: 100% center;
+    }
+  }
 
   &__button {
-    padding: 0;
-    cursor: pointer;
-    height: 4.5rem;
-    width: 22rem;
-    font-size: 2rem;
-    line-height: 2.8rem;
-    font-weight: 800;
-    text-shadow: rgb(111, 106, 106);
-    background: transparent;
-    border-radius: 6.5rem;
-    margin-left: 0.2rem;
-    background: #556677;
-    letter-spacing: 0.1rem;
-    color: #111010;
-    background: #F7D136;
-    box-shadow: 5px 5px 2px 0px rgba(64, 64, 64, 0.75);
-    width: 20%;
-   margin-right: 8rem;
-    
-   
-    &:hover {
-      background: #fff;
-      color: #444;
+    text-decoration: none;
+    border: 3px solid yellow;
+    color: transparent;
+    padding: 2rem 5rem;
+    font-size: 28px;
+    font-family: sans-serif;
+    letter-spacing: 5px;
+    transition: all 0.5s;
+    position: relative;
+    height: 8rem;
+
+    &:before {
+      content: "Get the best Recipes";
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: yellow;
+      background: rgb(34, 34, 34);
+      font-size: 28px;
+      top: 0;
+      left: 100%;
+      font-family: sans-serif;
+      letter-spacing: 5px;
+      transition: all 1s;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      transform: scale(0) rotatey(0);
+      opacity: 0;
     }
-    &:active {
-      box-shadow: 0px 0px 12px 0px rgba(225, 225, 225, 1);
+    &:hover:before {
+      transform: scale(1) rotatey(360deg);
+      left: 0;
+      opacity: 1;
     }
-    &:focus {
-      outline: 0;
+    &:after {
+      content: "Get the best Recipes";
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: yellow;
+      background: rgb(34, 34, 34);
+      font-size: 28px;
+      top: 0;
+      left: 0;
+      font-family: sans-serif;
+      letter-spacing: 5px;
+      transition: all 1s;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      transform: scale(1) rotatey(0);
+      opacity: 1;
+    }
+    &:hover:after {
+      transform: scale(0) rotatey(360deg);
+      left: -100%;
+      opacity: 0;
     }
   }
 
-  &__containerTwo {
+  &__container-searchtext {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 37%;
+    margin-top: 2.8rem;
+  }
+
+  &__button-separator {
+    width: 10%;
+    text-align: center;
   }
 
   &__wrapTwo {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
   }
 
   &__camera {
-    filter: invert(1);
     width: 4rem;
     height: 4rem;
     padding-left: 1rem;
   }
 
   &__allinputs {
-display: flex;
-justify-content: space-between;
-width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    // align-items: center;
+    height: 20vh;
+    background: #060505;
+    width: 100%;
   }
 
   &__results {
@@ -144,5 +152,96 @@ width: 100%;
     flex-wrap: wrap;
     overflow: auto;
     height: 60vh;
+  }
+
+  &__ingredientsArray {
+    margin: 2.4rem;
+    position: absolute;
+    top: 37%;
+    z-index: 1;
+
+    &-button {
+      width: 20rem;
+      height: 5rem;
+      border-radius: 7px;
+      font-size: 2.6rem;
+      
+
+    }
+
+    &-delete {
+      padding-left: 2rem;
+      color: rgb(227, 94, 33);
+      font-weight: 800;
+    }
+  }
+
+  &__container-upload {
+    // width: 22%;
+    // border: 1px solid #575756;
+    // padding: 3.6rem;
+    // height: 6rem;
+    // font-size: 2rem;
+    // font-weight: 800;
+    // text-transform: uppercase;
+    //   letter-spacing: 1.5px;
+
+    border: 2px solid #d2bdff;
+    height: 8rem;
+    width: 40rem;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    margin: 25px;
+
+    &::after {
+      content: "UPLOAD IMAGES";
+      position: absolute;
+      top: 41%;
+      left: 50%;
+      transform: translate(-50%);
+      color: #d2bdff;
+      transition: all 0.1s linear;
+      font-size: 2.6rem;
+    }
+
+    
+    @keyframes star {
+      0% {
+        margin-left: -8px;
+        margin-top: -8px;
+      }
+      25% {
+        margin-left: 194px;
+        margin-top: -8px;
+      }
+
+      50% {
+        margin-left: 194px;
+        margin-top: 75px;
+      }
+      75% {
+        margin-left: -8px;
+        margin-top: 75px;
+      }
+      100% {
+        margin-left: -8px;
+        margin-top: -8px;
+      }
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+        animation: star 1.3s linear infinite;
+      }
+
+      &::after {
+        content: "UPLOAD IMAGE";
+        text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 20px #82bedc,
+          0 0 30px #82bedc, 0 0 40px #82bedc, 0 0 50px #82bedc, 0 0 60px #82bedc;
+      }
+    }
   }
 }

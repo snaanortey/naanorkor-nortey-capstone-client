@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import camera_icon from "../../assets/images/5849-camera-icon.gif";
+import camera_icon from "../../assets/images/camera.svg";
 import "./GetRecipes.scss";
 import search_icon from "../../assets/images/search-icon.jpeg";
 import RecipeSummary from "../../Components/RecipeSummary/RecipeSummary";
@@ -68,22 +68,7 @@ export default function GetRecipes(props) {
         <div>
           <div className="searchrecipes__wrapTwo">
             <div className="searchrecipes__allinputs">
-              <div className="searchrecipes__containerTwo">
-                <input
-                  className="searchrecipes__input"
-                  placeholder="Type your ingredients"
-                  onKeyDown={pressEnterKey}
-                ></input>
-                <div>
-                  {ingredientList.map((ingredient, index) => (
-                    <button key={index}>
-                      {ingredient}
-                      <span onClick={() => deleteIngredient(index)}>x</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div>
+              <div className="searchrecipes__container-upload">
                 <input
                   className="searchrecipes__container"
                   onChange={getIngredientsViaImage}
@@ -92,15 +77,25 @@ export default function GetRecipes(props) {
                   id="upload-button"
                 />
 
-                <label htmlFor="upload-button">
-                  <img
-                    className="searchrecipes__camera"
-                    src={camera_icon}
-                    alt="camera icon"
-                  />
-                </label>
+                <label htmlFor="upload-button">UPLOAD IMAGES</label>
+              </div>
+
+              <div className="searchrecipes__container-searchtext">
+                <input
+                  className="searchrecipes__input"
+                  placeholder="Type your ingredients"
+                  onKeyDown={pressEnterKey}
+                ></input>
               </div>
             </div>
+            <div className="searchrecipes__ingredientsArray">
+            {ingredientList.map((ingredient, index) => (
+              <button className="searchrecipes__ingredientsArray-button" key={index}>
+                {ingredient}
+                <span className="searchrecipes__ingredientsArray-delete" onClick={() => deleteIngredient(index)}>x</span>
+              </button>
+            ))}
+          </div>
             <button
               className="searchrecipes__button"
               onClick={getRecipesHandler}
@@ -108,6 +103,7 @@ export default function GetRecipes(props) {
               GET RECIPE
             </button>
           </div>
+          
         </div>
       </div>
       <div className="searchrecipes__results">

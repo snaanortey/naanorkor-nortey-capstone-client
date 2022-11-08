@@ -5,9 +5,7 @@
 @use "../../styles/_partials/variables" as *;
 
 .recipespage {
-  // background: url("../../assets/images/getrecipesPage.jpeg") no-repeat center center
-  //   fixed;
-  background-size: cover;
+ background-color: white;
   height: 100vh;
   padding: 5rem;
 
@@ -19,25 +17,30 @@
     padding-bottom: 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
   }
 
   &__title {
     padding-bottom: 2rem;
-
-    font-size: 3rem;
-    line-height: 3.8rem;
-    font-weight: 700;
-    text-shadow: 2px 1px 28px rgba(229, 25, 25, 0.71);
+    font-size: 5rem;
+    line-height: 5.8rem;
+    font-weight: 600;
+    color: #2a2828;
   }
 
-  &__heading, &__description {
+  &__heading {
     padding-bottom: 1rem;
-    color: rgb(79, 75, 75);
+    color: rgb(53, 49, 49);
     font-size: 2rem;
     line-height: 2.8rem;
     font-weight: 400;
+    font-weight: 600;
+    font-style: italic;
   }
+
+ &__heading-div {
+  margin-left: 2rem;
+ }
 
  
 }
