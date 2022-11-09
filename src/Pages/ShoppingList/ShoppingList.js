@@ -41,7 +41,7 @@ export default function ShoppingList() {
         </div>
         <div className="shoppinglist__containerTwo">
           <h3 className="shoppinglist__heading">
-            Shoping List for{" "}
+            Shopping List for{" "}
             <span className="shoppinglist__mealname">{recipe.title}</span>
           </h3>
           <TypeMeal />
