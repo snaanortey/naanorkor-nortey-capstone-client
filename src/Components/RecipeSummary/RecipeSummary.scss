@@ -11,9 +11,10 @@
   margin: 2rem 0;
   background-color: rgb(250, 235, 215);
   overflow: auto;
+  border-radius: 18px;
 
   &__image-image {
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
   }
 
@@ -61,7 +62,7 @@
   -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  border-radius: 16px;
+  
   overflow: hidden;
   -webkit-box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
   box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
