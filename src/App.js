@@ -4,9 +4,9 @@ import HomePage from "./Pages/HomePage/HomePage";
 import ShoppingList from "./Pages/ShoppingList/ShoppingList";
 import SearchIngredients from "./Pages/SearchIngredients/SearchIngredients";
 import RecipeDetails from "./Pages/RecipeDetails/RecipeDetails";
-import RecipesPage from "./Pages/RecipesPage/RecipesPage";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { far } from "@fortawesome/free-regular-svg-icons";
+import GetRecipes from "./Pages/GetRecipes/GetRecipes";
 
 library.add(far);
 
@@ -16,7 +16,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/getRecipes" element={<RecipesPage />}></Route>
+          <Route path="/getRecipes" element={<GetRecipes />}></Route>
           <Route
             path="/getShoppingList"
             element={<SearchIngredients />}

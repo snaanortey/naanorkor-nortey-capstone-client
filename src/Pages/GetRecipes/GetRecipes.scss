@@ -5,10 +5,51 @@
 @use "../../styles/_partials/variables" as *;
 
 .searchrecipes {
+  background-image: url("../../assets/images/background-ingredientslist.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__wrapOne {
+    margin-left: 20rem;
+    background-color: white;
+    padding: 5rem;
+    height: 85vh;
+    width: 35%;
+  }
+
+  &__heading-div {
+    display: block;
+    list-style-type: disclosure-open;
+    margin-left: 2.4rem;
+    line-height: 3.4rem;
+    font-size: 2.8rem;
+
+  
+  }
+
+  &__heading {
+    padding-bottom: 1.6rem;
+    font-weight: 300;
+
+    &::marker {
+      color: #F1B438;
+    }
+  }
+
+  &__title {
+    line-height: 5.6rem;
+    font-size: 4.8rem;
+    padding-bottom: 2rem;
+    font-weight: 400;
+  }
+
   &__container {
-    // width: 500px;
-    // height: 40px;
-    margin: 150px auto;
+    margin: 15rem auto;
     background: #444;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 3px;
@@ -61,7 +102,7 @@
 
   &__button {
     text-decoration: none;
-    border: 3px solid yellow;
+    border: 3px solid #F1B438;
     color: transparent;
     padding: 2rem 5rem;
     font-size: 28px;
@@ -70,13 +111,14 @@
     transition: all 0.5s;
     position: relative;
     height: 8rem;
+    width: 24rem;
 
     &:before {
-      content: "Get the best Recipes";
+      content: "Get Recipes";
       display: flex;
       justify-content: center;
       align-items: center;
-      color: yellow;
+      color: #F1B438;
       background: rgb(34, 34, 34);
       font-size: 28px;
       top: 0;
@@ -96,11 +138,11 @@
       opacity: 1;
     }
     &:after {
-      content: "Get the best Recipes";
+      content: "Get Recipes";
       display: flex;
       justify-content: center;
       align-items: center;
-      color: yellow;
+      color: #F1B438;
       background: rgb(34, 34, 34);
       font-size: 28px;
       top: 0;
@@ -140,6 +182,7 @@
 
   &__allinputs {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     width: 100%;
     margin-bottom: 2rem;
@@ -153,7 +196,7 @@
   }
 
   &__ingredientsArray {
-    margin: 2.4rem 0;
+    margin: 1.6rem 0;
 
     &-button {
       width: 15rem;
@@ -186,6 +229,7 @@
   }
 
   &__container-upload {
+    margin: 2rem 0 3rem 0;
     padding: 2rem;
     width: 24rem;
     height: 7.5rem;
@@ -213,5 +257,12 @@
     &:focus {
       outline: none;
     }
+  }
+
+  &__wrapTwo {
+    height: 85vh;
+    margin-left: 8rem;
+    overflow: auto;
+
   }
 }
