@@ -20,16 +20,16 @@ function App() {
         <details>
           <summary></summary>
           <nav class="menu">
-            {/* <Link to="/">Home</Link> */}
-            <Link to="/2">Home2</Link>
+            {/* <Link to="/old">Home</Link> */}
+            <Link to="/">Home</Link>
             <Link to="/getRecipes">Get Recipes</Link>
             <Link to="/getShoppingList">Get Shopping List</Link>
           </nav>
         </details>
         <main>
           <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/2" element={<HomePage2 />}></Route>
+            <Route path="/old" element={<HomePage />}></Route>
+            <Route path="/" element={<HomePage2 />}></Route>
             <Route path="/getRecipes" element={<GetRecipes />}></Route>
             <Route
               path="/getShoppingList"

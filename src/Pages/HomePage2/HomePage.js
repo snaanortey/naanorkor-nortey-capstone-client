@@ -5,6 +5,7 @@ import napkin from "../../assets/images/napkin.png";
 
 function HomePageImages() {
   return (
+    <div> 
     <div class="container">
   <div class="carousel">
     <div class="carousel__face"><span>Welcome to FOODEASE</span></div>
@@ -17,6 +18,9 @@ function HomePageImages() {
     <div class="carousel__face"><span>Buy only what you need</span></div>
     <div class="carousel__face"><span>Save the planet</span></div>
   </div>
+</div>
+<div class="foodease"><h1 class="foodease__title">Food<em>ease</em>💆🏽‍♀️</h1></div>
+
 </div>
   );
 }
