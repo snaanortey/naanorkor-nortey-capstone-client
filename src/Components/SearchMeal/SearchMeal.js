@@ -35,6 +35,7 @@ export default function SearchMeal() {
           name="search"
           placeholder="Search your meal..."
           class="search-input"
+          autocomplete="off"
         />
 
         <p className="meal__icon">🔍</p>

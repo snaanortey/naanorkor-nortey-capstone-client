@@ -30,8 +30,9 @@ export default function RecipeDetails() {
 
   return (
     <div className="recipeDetails">
-      <img className="recipeDetails__image" src={recipepic} alt="food" />
-      <div className="recipeDetails__text">
+      <div className="recipeDetails__container"> 
+      <div className="recipeDetails__wrapOne">
+        <div className="recipeDetails__image">
         <div className="recipeDetails__title">
           <h3 className="recipeDetails__name">{recipe.title}</h3>
           <div className="recipeDetails__others">
@@ -44,6 +45,10 @@ export default function RecipeDetails() {
             <FontAwesomeIcon icon={["far", "compass"]} /> 457 calories
           </div>
         </div>
+        </div>
+      </div>
+
+      <div className="recipeDetails__wrapTwo">
         <h3 className="recipeDetails__ingredients-heading">Ingredients</h3>
         <div className="recipeDetails__list">
           {recipe.ingredients.map((ingredient, i) => (
@@ -60,6 +65,7 @@ export default function RecipeDetails() {
             ))}
           </ol>
         </div>
+      </div>
       </div>
     </div>
   );
