@@ -2,8 +2,8 @@
 
 This is the frontend repository of my bootcamp capstone project; Foodease. Ever had ingredients in your kitchen but not sure what to cook? Or gone shopping to prepare a meal and forgot to buy one or two of the ingredients? Foodease solves these problems while reducing food waste. Foodease is a web app that allows users to:
 
-- Take pictures of ingredients they have at home, upload them and get recipes to cook! Users can do this using the `GetRecipes` feature.
-- Type a meal they want to prepare and get a shopping list for that meal. Users can do this using the `GetShoppingLiist` feature.
+- Take pictures of ingredients they have at home, upload them and get recipes to cook! Users can do this using the `GetRecipes` feature. 
+- Type a meal they want to prepare and get a shopping list for that meal. Users can do this using the `GetShoppingList` feature.
 
 Foodease reduces food waste by:
 
