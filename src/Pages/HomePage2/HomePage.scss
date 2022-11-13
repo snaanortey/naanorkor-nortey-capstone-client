@@ -1,8 +1,8 @@
-// @use "../.././styles/_partials/breakpoints" as *;
-// @use "../../styles/_partials/fonts" as *;
-// @use "../../styles/_partials/mixins" as *;
-// @use "../../styles/_partials/resets" as *;
-// @use "../../styles/_partials/variables" as *;
+@use "../.././styles/_partials/breakpoints" as *;
+@use "../../styles/_partials/fonts" as *;
+@use "../../styles/_partials/mixins" as *;
+@use "../../styles/_partials/resets" as *;
+@use "../../styles/_partials/variables" as *;
 
 .foodease {
   position: absolute;
